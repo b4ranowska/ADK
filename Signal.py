@@ -93,14 +93,14 @@ class Signal:
 #         else:
 #             print("Błąd w wyborze!")
 #             exit()
-
+#
 #         self.title_plot = title_plot
 #         plt.plot(self.x[:20000], temp_y[:20000])
 #         plt.xlabel("Time [ms]")
 #         plt.ylabel("Amplitude")
 #         plt.title(f"{self.title_plot} z pliku {self.signal}")
 #         plt.show()
-
+#
 # o = Signal()
 # o.get_signal('nagranie_1.wav')
 # o.plot_signal("Sygnał wejściowy mono", 1)
