@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="static\simple.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>ADK-{{title}}</title>
+    {% else %}
+        <title>ADK</title>
+    {% endif %}
+</head>
+<body>
+    <header>
+    <h5>Odsłuch sygnału fonokardiograficznego zarejestrowanego urządzeniem komórkowym</h5>
+    </header>
+
+    <audio controls>
+        <source src="../static/nagranie_1.wav" type="audio/wav">
+    </audio>
+
+
+</body>
+</html>
