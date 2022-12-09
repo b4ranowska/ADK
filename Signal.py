@@ -4,8 +4,7 @@ from numpy.fft import fftfreq
 from scipy import signal
 from scipy.fftpack import fft
 from scipy.io import wavfile
-import matplotlib.pyplot as plt
-from scipy.fft import fftshift
+
 
 
 class Signal:
@@ -55,7 +54,7 @@ class Signal:
 
         intervalLength = 1
         outputSignal = []
-        
+
         for baseIndex in range (intervalLength, len (absoluteSignal)):
             maximum = 0
             for lookbackIndex in range (intervalLength):
@@ -71,45 +70,13 @@ class Signal:
            np.square(np.abs(fft(signal)[:n // 2] / n))
         return freq, power/np.max(power)
 
-
     def spektogram(self):
-        fs = 1;
+
+        fs = 1
         f, t, Sxx = signal.spectrogram(self.recon_sig, fs, return_onesided=False)
-        # plt.pcolormesh(t, fftshift(f), fftshift(Sxx, axes=0), shading='gouraud')
-        # plt.ylabel('Frequency [Hz]')
-        # plt.xlabel('Time [sec]')
-        # plt.show()
+
         return f, t
 
-#     def plot_signal(self, title_plot, choice):
-#         if choice == 1:
-#             temp_y = self.y
-#         elif choice == 2:
-#             temp_y = self.normalized_sig
-#         elif choice == 3:
-#             temp_y = self.recon_sig
-#         elif choice == 4:
-#             temp_y = self.signal_enve
-#         else:
-#             print("Błąd w wyborze!")
-#             exit()
-#
-#         self.title_plot = title_plot
-#         plt.plot(self.x[:20000], temp_y[:20000])
-#         plt.xlabel("Time [ms]")
-#         plt.ylabel("Amplitude")
-#         plt.title(f"{self.title_plot} z pliku {self.signal}")
-#         plt.show()
-#
-# o = Signal()
-# o.get_signal('nagranie_1.wav')
-# o.plot_signal("Sygnał wejściowy mono", 1)
-# o.normalize_signal()
-# o.plot_signal("Normalizacja", 2)
-# o.reconstruction()
-# o.plot_signal("lowpass", 3)
-# o.env()
-# o.spektogram()
 
 
 

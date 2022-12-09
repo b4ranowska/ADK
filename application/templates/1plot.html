@@ -16,18 +16,21 @@
 </head>
 <body>
     <header>
-    <h5>Wykres sygnału fonokardiograficznego zarejestrowanego urządzeniem komórkowym</h5>
+    <h5>Wykresy sygnału fonokardiograficznego zarejestrowanego urządzeniem komórkowym</h5>
     </header>
 
     <div>
-    <div id="chart1"></div>
-        <p>
-            Wykres 1
-        </p>
+    <div id="chart1" style="width: 800px; height: 500px; "></div>
+
+    <div id="chart2" style="width: 800px; height: 500px; "></div>
+
 
     <script type="text/javascript">
         const graph1 = {{ graph1JSON | safe }};
         Plotly.plot("chart1", graph1, {});
+
+        const graph2 = {{ graph2JSON | safe }};
+        Plotly.plot("chart2", graph2, {});
     </script>
     </div>
 </body>
