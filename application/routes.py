@@ -1,5 +1,5 @@
 from application import app
-from flask import render_template, url_for
+from flask import render_template
 from Signal import Signal
 import json
 import plotly
@@ -41,13 +41,14 @@ def plot1():
     signal2.normalize_signal()
     signal2.reconstruction()
     signal_reconstructed = signal2.recon_sig
-    freq, power = signal2.fft_power_freq(1, signal_reconstructed)
+    fs = signal2.sample_rate
+    freq, power = signal2.fft_power_freq(fs, signal_reconstructed)
     sig_freq = list(freq[:1000])
     sig_power = list(power[:1000])
 
     fig2 = px.line(x=sig_freq, y=sig_power,
                    labels={
-                       'x': 'Częstotliwość [kHz]',
+                       'x': 'Częstotliwość [Hz]',
                        'y': 'Moc'},
                    title='Widmo sygnału fonokardiograficznego')
 
